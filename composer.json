@@ -1,0 +1,15 @@
+{
+    "name": "admin/zungvi.com",
+    "authors": [
+        {
+            "name": "Fabrice Kulhe",
+            "email": "fabricekulhe@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    }
+}
