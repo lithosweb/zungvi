@@ -6,7 +6,10 @@
             "email": "fabricekulhe@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "vlucas/valitron": "^1.4",
+        "vlucas/phpdotenv": "^5.5"
+    },
     "autoload": {
         "psr-4": {
             "app\\": "./"

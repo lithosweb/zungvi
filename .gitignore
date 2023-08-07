@@ -1,0 +1,8 @@
+/vendor
+.htaccess
+/public/.htaccess
+.env
+.gitignore
+/storage
+composer.json
+composer.lock

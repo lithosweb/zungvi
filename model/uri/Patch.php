@@ -4,44 +4,105 @@ namespace app\model\uri;
 
 use app\router\Routes;
 
-class Patch 
+class Patch
 {
     public function uri($url)
     {
         $patchRoutes = Routes::patchRoutes();
 
-        if (!array_key_exists($url, $patchRoutes)) {
-            header("Location: /error");
-            exit;
-        }
         switch ($url) {
 
-            case 'value':
+            case '/connexion':
                 # code...
                 break;
 
-
-            case 'value':
+            case '/welcome':
                 # code...
                 break;
 
-
-            case 'value':
+            case '/explore':
                 # code...
                 break;
 
-
-            case 'value':
+            case '/explore/people':
                 # code...
                 break;
 
+            case '/explore/photos':
+                # code...
+                break;
 
-            case 'value':
+            case '/explore/videos':
+                # code...
+                break;
+
+            case '/explore/audios':
+                # code...
+                break;
+
+            case '/explore/groups':
+                # code...
+                break;
+
+            case '/notifications':
+                # code...
+                break;
+
+            case '/messages':
+                # code...
+                break;
+
+            case '/profil':
+                # code...
+                break;
+
+            case '/profil/bookmark':
+                # code...
+                break;
+
+            case '/profil/favourites':
+                # code...
+                break;
+
+            case '/profil/groups':
+                # code...
+                break;
+
+            case '/profil/photos':
+                # code...
+                break;
+
+            case '/profil/videos':
+                # code...
+                break;
+
+            case '/profil/audios':
+                # code...
+                break;
+
+            case '/profil/edit':
+                # code...
+                break;
+
+            case '/settings':
+                # code...
+                break;
+
+            case '/help':
+                # code...
+                break;
+
+            case '/error':
+                # code... 
+                break;
+
+            case 'logout':
                 # code...
                 break;
 
             default:
-                # code...
+                header("Location: /error");
+                exit;
                 break;
         }
     }
