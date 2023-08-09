@@ -3,11 +3,13 @@
 namespace app\model\uri;
 
 use app\router\Routes;
+use app\sanitize\Sanitize;
 
 class Patch
 {
     public function uri($url)
     {
+        $data = Sanitize::data(json_decode(file_get_contents('php://input'), true));
         $patchRoutes = Routes::patchRoutes();
 
         switch ($url) {

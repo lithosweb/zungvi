@@ -7,7 +7,6 @@ use app\model\uri\Get;
 use app\model\uri\Patch;
 use app\model\uri\Post;
 use app\router\Router;
-use app\router\Routes;
 
 class ResolveMethod
 {
@@ -46,7 +45,6 @@ class ResolveMethod
                 $this->patch->uri($url, $query);
                 break;
 
-
             case 'DELETE':
                 $this->delete->uri($url, $query);
                 break;
@@ -54,7 +52,7 @@ class ResolveMethod
             default:
                 header("Content: application/json");
                 header("Allow: GET, POST, PATCH, DELETE");
-                echo json_encode("Method Error::Wrong method");
+                echo json_encode("Method-Error::Wrong_method");
                 break;
         }
     }

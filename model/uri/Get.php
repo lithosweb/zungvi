@@ -4,31 +4,37 @@ namespace app\model\uri;
 
 use app\model\View;
 use app\router\Routes;
+use app\sanitize\Sanitize;
 
 class Get
 {
     public function uri($url)
     {
+        $getRoutes = Routes::getRoutes();
+
+        $data = Sanitize::data($_GET);
+        
         $uri_0 = explode('/', $url)[0];
         if ($uri_0 !== '') {
-            header("Location: /welcome");
+            header('Location: /welcome');
             exit;
         }
         $uri_1 = explode('/', $url)[1];
         $uri_2 = explode('/', $url)[2] ?? '';
 
-        $getRoutes = Routes::getRoutes();
-
-        $data = $_GET;
 
         switch ($uri_1) {
 
+            case 'signup':
+                View::getOut('signup', 'connexion', '_conn');
+                break;
+
             case 'connexion':
-                View::getOut("connexion", "connexion", "_conn");
+                View::getOut('connexion', 'connexion', '_conn');
                 break;
 
             case 'welcome':
-                View::getOut("welcome");
+                View::getOut('welcome');
                 break;
 
             case 'explore':
@@ -36,11 +42,11 @@ class Get
                 break;
 
             case 'notifications':
-                View::getOut("notification");
+                View::getOut('notification');
                 break;
 
             case 'messages':
-                View::getOut("message");
+                View::getOut('message');
                 break;
 
             case 'profil':
@@ -48,101 +54,103 @@ class Get
                 break;
 
             case 'settings':
-                View::getOut("settings");
+                View::getOut('settings');
                 break;
 
             case 'help':
-                View::getOut("help", "etc");
+                View::getOut('help', 'etc');
                 break;
 
             case 'about':
-                View::getOut("about", "etc");
+                View::getOut('about', 'etc');
                 break;
 
             case 'error':
-                View::getOut("404", "etc");
+                View::getOut('404', 'etc');
                 break;
 
             case 'logout':
-                header("Location: /connexion");
+                header('Location: /connexion');
                 break;
 
             default:
-                header("Location: /welcome");
+                header('Location: /welcome');
                 break;
         }
     }
 
     public function profil_uri($uri_2)
     {
+        $path = 'profil/';
         switch ($uri_2) {
             case '':
-                View::getOut("profil");
+                View::getOut('profil');
                 break;
 
             case 'bookmarks':
-                View::getOut("profil/bookmark");
+                View::getOut($path . 'bookmark');
                 break;
 
             case 'favourites':
-                View::getOut("profil/favourite");
+                View::getOut($path . 'favourite');
                 break;
 
             case 'groups':
-                View::getOut("profil/group");
+                View::getOut($path . 'group');
                 break;
 
             case 'photos':
-                View::getOut("profil/photo");
+                View::getOut($path . 'photo');
                 break;
 
             case 'videos':
-                View::getOut("profil/video");
+                View::getOut($path . 'video');
                 break;
 
             case 'audios':
-                View::getOut("profil/audio");
+                View::getOut($path . 'audio');
                 break;
 
             case 'edit':
-                View::getOut("profil/edit");
+                View::getOut($path . 'edit');
                 break;
 
             default:
-                header("Location: /profil");
+                header('Location: /profil');
                 break;
         }
     }
 
     public function explore_uri($uri_2)
     {
+        $path = 'explore/';
         switch ($uri_2) {
             case '':
-                View::getOut("explore");
+                View::getOut('explore');
                 break;
 
             case 'people':
-                View::getOut("explore/people");
+                View::getOut($path . 'people');
                 break;
 
             case 'photos':
-                View::getOut("explore/photo");
+                View::getOut($path . 'photo');
                 break;
 
             case 'videos':
-                View::getOut("explore/video");
+                View::getOut($path . 'video');
                 break;
 
             case 'audios':
-                View::getOut("explore/audio");
+                View::getOut($path . 'audio');
                 break;
 
             case 'groups':
-                View::getOut("explore/group");
+                View::getOut($path . 'group');
                 break;
 
             default:
-                header("Location: /explore");
+                header('Location: /explore');
                 break;
         }
     }

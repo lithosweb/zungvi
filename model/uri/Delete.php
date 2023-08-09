@@ -3,6 +3,7 @@
 namespace app\model\uri;
 
 use app\router\Routes;
+use app\sanitize\Sanitize;
 
 class Delete
 {
@@ -10,12 +11,8 @@ class Delete
 
     public function uri($url)
     {
+        $data = Sanitize::data(json_decode(file_get_contents('php://input'), true));
         $deleteRoutes = Routes::deleteRoutes();
-
-        if (!array_key_exists($url, $deleteRoutes)) {
-            header("Location: /error");
-            exit;
-        }
 
         switch ($url) {
 

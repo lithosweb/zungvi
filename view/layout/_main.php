@@ -12,6 +12,7 @@
 
     <nav>
         <ul>
+            <li><a href="/signup">Sign up</a></li>
             <li><a href="/connexion">Connexion</a></li>
             <li><a href="/welcome">Welcome</a></li>
             <li><a href="/explore">Eplore</a></li>

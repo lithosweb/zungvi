@@ -35,8 +35,14 @@ class Auth
 
     public static function set()
     {
-        $_SESSION = [];
+        if ($_SESSION['auth']) {
+            self::check();
+        }
+
+        session_regenerate_id(true);
+
         $db = "username"; // username to hash from the DB
+
         $_SESSION["auth"] = password_hash($db, PASSWORD_BCRYPT);
         return $_SESSION;
     }

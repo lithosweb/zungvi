@@ -4,6 +4,7 @@ namespace app\model\uri;
 
 use app\model\validation\Post as ValidationPost;
 use app\router\Routes;
+use app\sanitize\Sanitize;
 
 class Post
 {
@@ -16,31 +17,17 @@ class Post
 
     public function uri($url)
     {
-        // $data = $this->post;
-        // $this
-
-        // $v = new Valitron\Validator($_POST);
-        // $v->rule('required', ['name', 'email']);
-        // $v->rule('email', 'email');
-        // if($v->validate()) {
-        //     echo "Yay! We're all good!";
-        // } else {
-        //     // Errors
-        //     print_r($v->errors());
-        // }
-
-        /* Valitron\Validator::addRule('alwaysFail', function($field, $value, array $params, array $fields) {
-            return false;
-        }, 'Everything you do is wrong. You fail.'); */
-
+        $data = Sanitize::data($_POST);
         $postRoutes = Routes::postRoutes();
-
-        // $data = $_POST;
 
         switch ($url) {
 
+            case '/signup':
+                $this->postVal->sign_up($data);
+                break;
+
             case '/connexion':
-                $this->postVal->connexion();
+                $this->postVal->connexion($data);
                 break;
 
             case '/welcome':
