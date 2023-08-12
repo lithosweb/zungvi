@@ -2,6 +2,7 @@
 
 namespace app\model\validation;
 
+use app\api\Mail;
 use app\auth\Auth;
 use app\model\Validation;
 
@@ -24,10 +25,19 @@ class Post extends Validation
 
         if ($this->v->validate()) {
 
+
             // authenticate user
 
-            Auth::set();
+            // Auth::set();
             header("Location: /welcome");
+
+
+            //TEST--------------------------------------------
+            $mail = new Mail;
+            $mail->send_gmail($data['email'] ?? 'fabricekulhe@gmail.com');
+            //TEST-----------------------------------------------
+
+
             exit;
         } else {
             $_SESSION['signup']['errors'] = $this->v->errors();
@@ -56,8 +66,16 @@ class Post extends Validation
 
             // authenticate user
 
-            Auth::set();
+            // Auth::set();
             header("Location: /welcome");
+
+
+            //TEST--------------------------------------------
+            $mail = new Mail;
+            $mail->send_gmail($data['username'] ?? 'fabricekulhe@gmail.com');
+            //TEST-----------------------------------------------
+
+            
             exit;
         } else {
             $_SESSION['connexion']['errors'] = $this->v->errors();

@@ -8,7 +8,7 @@ $_SESSION['connexion']['user'] = [];
 <h1>Connexion</h1>
 
 <form action="/connexion" method="post">
-    <input type="hidden" name="_auth" id="" class="" value='<?= password_hash("auth", PASSWORD_BCRYPT) ?>'>
+    <input type="hidden" name="_auth" id="" class="" value='<?= trim(password_hash("auth", PASSWORD_BCRYPT), '$2y$10$') ?>'>
     <input type="text" name="username" class="" id="" autofocus value='<?= $data['username'] ?? '' ?>' placeholder="Username"> <br>
     <?php if (array_key_exists("username", $errors)) : ?>
         <small>
