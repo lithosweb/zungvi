@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\model\uri;
 
 use app\model\validation\Post as ValidationPost;
@@ -15,7 +17,7 @@ class Post
         $this->postVal = new ValidationPost;
     }
 
-    public function uri($url)
+    public function uri($url): void
     {
         $data = Sanitize::data($_POST);
         $postRoutes = Routes::postRoutes();

@@ -2,7 +2,7 @@
 
 namespace app\sanitize;
 
-class Sanitize
+class Sanitize implements Sanitize_Interface
 {
 
     public static function data($data)

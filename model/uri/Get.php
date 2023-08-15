@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\model\uri;
 
 use app\model\View;
@@ -8,7 +10,7 @@ use app\sanitize\Sanitize;
 
 class Get
 {
-    public function uri($url)
+    public function uri($url): void
     {
         $getRoutes = Routes::getRoutes();
 
@@ -79,7 +81,7 @@ class Get
         }
     }
 
-    public function profil_uri($uri_2)
+    public function profil_uri($uri_2): void
     {
         $path = 'profil/';
         switch ($uri_2) {
@@ -121,7 +123,7 @@ class Get
         }
     }
 
-    public function explore_uri($uri_2)
+    public function explore_uri($uri_2): void
     {
         $path = 'explore/';
         switch ($uri_2) {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\model;
 
 use app\model\uri\Delete;
@@ -25,7 +27,7 @@ class ResolveMethod
         $this->delete = new Delete;
     }
 
-    public function method()
+    public function method(): void
     {
         $meth = $this->router->getMethod();
         $url = $this->router->getUrl();

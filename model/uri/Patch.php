@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\model\uri;
 
 use app\router\Routes;
@@ -7,7 +9,7 @@ use app\sanitize\Sanitize;
 
 class Patch
 {
-    public function uri($url)
+    public function uri($url): void
     {
         $data = Sanitize::data(json_decode(file_get_contents('php://input'), true));
         $patchRoutes = Routes::patchRoutes();

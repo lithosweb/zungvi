@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\model\validation;
 
-use app\api\Mail;
 use app\auth\Auth;
 use app\model\Validation;
 
 class Post extends Validation
 {
-    public function sign_up($data = [])
+    public function sign_up($data = []): void
     {
         // valid user s inputs
         $this->v->rule('required', ['username', 'firstname', 'lastname', 'email', 'password', '_auth']);
@@ -23,18 +24,18 @@ class Post extends Validation
 
         // Prevent any doublon in the DB
 
-        if ($this->v->validate()) {
+        // code ...
 
+        if ($this->v->validate()) {
 
             // authenticate user
 
-            // Auth::set();
+            Auth::set();
             header("Location: /welcome");
 
 
             //TEST--------------------------------------------
-            $mail = new Mail;
-            $mail->send_gmail($data['email'] ?? 'fabricekulhe@gmail.com');
+            $this->zungvi->send($data['email']); 
             //TEST-----------------------------------------------
 
 
@@ -47,7 +48,7 @@ class Post extends Validation
         }
     }
 
-    public function connexion($data = [])
+    public function connexion($data = []): void
     {
         // valid user s inputs
 
@@ -62,17 +63,18 @@ class Post extends Validation
 
         // check user login authenticity
 
+        // code ...
+
         if ($this->v->validate()) {
 
             // authenticate user
 
-            // Auth::set();
-            header("Location: /welcome");
+            Auth::set();
+            // header("Location: /welcome");
 
 
             //TEST--------------------------------------------
-            $mail = new Mail;
-            $mail->send_gmail($data['username'] ?? 'fabricekulhe@gmail.com');
+            $this->gmail->send($data['username']);
             //TEST-----------------------------------------------
 
             

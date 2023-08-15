@@ -1,8 +1,10 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace app\model;
 
-class Model
+class Model implements Model_Interface
 {
     public ResolveMethod $resolveMethod;
 

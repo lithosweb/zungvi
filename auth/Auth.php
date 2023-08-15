@@ -1,21 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\auth;
 
-class Auth
+class Auth implements Auth_Interface
 {
 
-    public static function start()
+    public static function start(): bool
     {
         return session_start();
     }
 
-    public static function erase()
+    public static function erase(): bool
     {
         return session_unset();
     }
 
-    public static function check()
+    public static function check(): void
     {
         if (empty($_SESSION)) {
             header("Location: /connexion");
@@ -33,7 +35,7 @@ class Auth
         return;
     }
 
-    public static function set()
+    public static function set(): array
     {
         if ($_SESSION['auth']) {
             self::check();

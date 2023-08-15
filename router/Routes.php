@@ -2,9 +2,9 @@
 
 namespace app\router;
 
-class Routes
+class Routes implements Router_Interface
 {
-    public static function getRoutes()
+    public static function getRoutes(): array
     {
         return [
             "/connexion" => "connexion",
@@ -29,69 +29,26 @@ class Routes
             "/help" => "help",
             "/logout" => "logout",
             "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
+        ];
+    }
+
+    public static function postRoutes(): array
+    {
+        return [
             "" => "",
         ];
     }
 
-    public static function postRoutes()
+    public static function patchRoutes(): array
     {
         return [
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
             "" => "",
         ];
     }
 
-    public static function patchRoutes()
+    public static function deleteRoutes(): array
     {
         return [
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-        ];
-    }
-
-    public static function deleteRoutes()
-    {
-        return [
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => "",
             "" => "",
         ];
     }
